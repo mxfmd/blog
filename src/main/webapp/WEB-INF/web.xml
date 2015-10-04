@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!--Filters-->
+    <filter>
+        <filter-name>SetCharacterEncodingFilter</filter-name>
+        <filter-class>me.dolia.blog.filters.SetCharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>requestEncoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>SetCharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--Handler for all errors-->
+    <error-page>
+        <location>/error.html</location>
+    </error-page>
+
+    <!--Servlets-->
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>me.dolia.blog.controllers.register.LoginServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Signup</servlet-name>
+        <servlet-class>me.dolia.blog.controllers.register.SignupServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Signup</servlet-name>
+        <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>me.dolia.blog.controllers.register.LogoutServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Main</servlet-name>
+        <servlet-class>me.dolia.blog.controllers.MainServlet</servlet-class>
+        <init-param>
+            <description>Quantity of posts displayed on front page</description>
+            <param-name>postsCount</param-name>
+            <param-value>5</param-value>
+        </init-param>
+
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Main</servlet-name>
+        <!--suppress WebProperties -->
+        <url-pattern></url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TagServlet</servlet-name>
+        <servlet-class>me.dolia.blog.controllers.blog.TagServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TagServlet</servlet-name>
+        <url-pattern>/tag/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BlogPostServlet</servlet-name>
+        <servlet-class>me.dolia.blog.controllers.blog.BlogPostServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BlogPostServlet</servlet-name>
+        <url-pattern>/post/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NewPostServlet</servlet-name>
+        <servlet-class>me.dolia.blog.controllers.blog.NewPostServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewPostServlet</servlet-name>
+        <url-pattern>/newpost</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NewCommentServlet</servlet-name>
+        <servlet-class>me.dolia.blog.controllers.blog.NewCommentServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewCommentServlet</servlet-name>
+        <url-pattern>/post/newcomment</url-pattern>
+    </servlet-mapping>
+
+</web-app>
