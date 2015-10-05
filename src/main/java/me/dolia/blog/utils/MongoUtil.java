@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class MongoUtil {
 
-    private static final boolean LOCALHOST = true;
+    private static final boolean LOCALHOST = false;
 
     private static MongoDatabase db;
 

@@ -15,6 +15,18 @@
 
     <dependencies>
         <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
             <version>3.0.0</version>
@@ -39,11 +51,7 @@
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.2.13.v20150730</version>
-                <configuration>
-                    <webAppSourceDirectory>${project.basedir}/web</webAppSourceDirectory>
-                </configuration>
             </plugin>
-
         </plugins>
     </build>
 
