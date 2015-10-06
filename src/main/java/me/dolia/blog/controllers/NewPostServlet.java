@@ -1,4 +1,4 @@
-package me.dolia.blog.controllers.blog;
+package me.dolia.blog.controllers;
 
 import me.dolia.blog.dao.PostDAO;
 import me.dolia.blog.dto.Post;

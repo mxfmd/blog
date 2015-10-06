@@ -31,7 +31,7 @@
     <!--Servlets-->
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>me.dolia.blog.controllers.register.LoginServlet</servlet-class>
+        <servlet-class>me.dolia.blog.controllers.LoginServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
@@ -41,7 +41,7 @@
 
     <servlet>
         <servlet-name>Signup</servlet-name>
-        <servlet-class>me.dolia.blog.controllers.register.SignupServlet</servlet-class>
+        <servlet-class>me.dolia.blog.controllers.SignupServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
@@ -51,7 +51,7 @@
 
     <servlet>
         <servlet-name>Logout</servlet-name>
-        <servlet-class>me.dolia.blog.controllers.register.LogoutServlet</servlet-class>
+        <servlet-class>me.dolia.blog.controllers.LogoutServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
@@ -77,7 +77,7 @@
 
     <servlet>
         <servlet-name>TagServlet</servlet-name>
-        <servlet-class>me.dolia.blog.controllers.blog.TagServlet</servlet-class>
+        <servlet-class>me.dolia.blog.controllers.TagServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
@@ -87,7 +87,7 @@
 
     <servlet>
         <servlet-name>BlogPostServlet</servlet-name>
-        <servlet-class>me.dolia.blog.controllers.blog.BlogPostServlet</servlet-class>
+        <servlet-class>me.dolia.blog.controllers.BlogPostServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
@@ -97,7 +97,7 @@
 
     <servlet>
         <servlet-name>NewPostServlet</servlet-name>
-        <servlet-class>me.dolia.blog.controllers.blog.NewPostServlet</servlet-class>
+        <servlet-class>me.dolia.blog.controllers.NewPostServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
@@ -107,7 +107,7 @@
 
     <servlet>
         <servlet-name>NewCommentServlet</servlet-name>
-        <servlet-class>me.dolia.blog.controllers.blog.NewCommentServlet</servlet-class>
+        <servlet-class>me.dolia.blog.controllers.NewCommentServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>

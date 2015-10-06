@@ -1,4 +1,4 @@
-package me.dolia.blog.controllers.register;
+package me.dolia.blog.controllers;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
