@@ -15,11 +15,6 @@ public class BlogPostServlet extends HttpServlet {
     private PostDAO postDAO;
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req, resp);
-    }
-
-    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String permalink = req.getPathInfo().substring(1);
 

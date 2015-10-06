@@ -20,8 +20,4 @@ public class LogoutServlet extends HttpServlet {
         response.sendRedirect(response.encodeRedirectURL("/"));
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
 }

@@ -29,11 +29,6 @@ public class TagServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
-
-    @Override
     public void init() throws ServletException {
         postDAO = new PostDAO();
     }
