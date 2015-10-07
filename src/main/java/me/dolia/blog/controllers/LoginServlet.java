@@ -19,6 +19,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String from = request.getParameter("from");
 
         User user = new User(username, password);
 
@@ -26,7 +27,7 @@ public class LoginServlet extends HttpServlet {
 
             //valid user
             request.getSession().setAttribute("username", username);
-            response.sendRedirect(response.encodeRedirectURL("/"));
+            response.sendRedirect(response.encodeRedirectURL(from == null ? "/" : from));
         } else {
             request.setAttribute("error_message", user.getMessage());
             doGet(request, response);
