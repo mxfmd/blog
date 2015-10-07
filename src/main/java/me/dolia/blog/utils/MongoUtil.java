@@ -54,14 +54,7 @@ public class MongoUtil {
 
             MongoClient mongoClient = new MongoClient(address, Collections.singletonList(credential));
             db = mongoClient.getDatabase(dbname);
-
-            return db;
         }
         return db;
     }
-
-    public static void main(String[] args) throws IOException {
-        MongoUtil.getMongoDB();
-    }
-
 }
