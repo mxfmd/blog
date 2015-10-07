@@ -43,7 +43,7 @@ public class MongoUtil {
                     port = Integer.parseInt(System.getenv(properties.getProperty("port")));
                     username = System.getenv(properties.getProperty("username"));
                     password = System.getenv(properties.getProperty("password"));
-                    dbname = properties.getProperty("dbname");
+                    dbname = System.getenv(properties.getProperty("dbname"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
