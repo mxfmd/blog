@@ -19,9 +19,6 @@ public class NewPostServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (req.getSession().getAttribute("username") == null)
-            resp.encodeRedirectURL("/login");
-        else
             req.getRequestDispatcher("/newpost.jsp").forward(req, resp);
     }
 
