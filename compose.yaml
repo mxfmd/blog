@@ -1,0 +1,42 @@
+services:
+  server:
+    build:
+      context: .
+    environment:
+      OPENSHIFT_MONGODB_DB_HOST: mongo
+      OPENSHIFT_MONGODB_DB_PORT: 27017
+      OPENSHIFT_MONGODB_DB_USERNAME: ${MONGO_USERNAME:-admin}
+      OPENSHIFT_MONGODB_DB_PASSWORD: ${MONGO_PASSWORD}
+      OPENSHIFT_APP_NAME: ${APP_NAME:-admin}
+    ports:
+      - "8080:8080"
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:7.0
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    # Remove ports section to prevent external access
+
+volumes:
+  mongo_data:
+
+networks:
+  app-network:
+    driver: bridge

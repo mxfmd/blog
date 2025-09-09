@@ -8,3 +8,5 @@ log/
 target/
 src/main/resources/localhost.properties
 out
+
+.env
