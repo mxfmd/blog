@@ -1,7 +1,6 @@
 services:
   server:
-    build:
-      context: .
+    image: ghcr.io/mxfmd/blog:master
     environment:
       OPENSHIFT_MONGODB_DB_HOST: mongo
       OPENSHIFT_MONGODB_DB_PORT: 27017
@@ -32,7 +31,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
-    # Remove ports section to prevent external access
 
 volumes:
   mongo_data:
