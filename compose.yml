@@ -7,14 +7,17 @@ services:
       OPENSHIFT_MONGODB_DB_USERNAME: ${MONGO_USERNAME:-admin}
       OPENSHIFT_MONGODB_DB_PASSWORD: ${MONGO_PASSWORD}
       OPENSHIFT_APP_NAME: ${APP_NAME:-admin}
-    ports:
-      - "8080:8080"
     depends_on:
       mongo:
         condition: service_healthy
     networks:
       - app-network
+      - traefik-network
     restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.blog-server.rule=Host(`blog.dolia.me`)"
+      - "traefik.docker.network=traefik-network"
 
   mongo:
     image: mongo:7.0
@@ -38,3 +41,5 @@ volumes:
 networks:
   app-network:
     driver: bridge
+  traefik-network:
+    external: true
